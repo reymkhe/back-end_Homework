@@ -1,25 +1,35 @@
 package it.sevenbits;
 
 public class Parser {
-    public static String[] parse (final String strInput){
+    public static String[] parse(final String strInput) {
+        String trimedString = strInput.trim();
         int count = 0;
-        StringBuilder sb = new StringBuilder();
-        for (int i=0; i < strInput.length(); i++) {
-            if (strInput.charAt(i) == ' ') {
-                count++;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < trimedString.length(); i++) {
+            if (trimedString.charAt(i) != ' ') {
+                stringBuilder = stringBuilder.append(trimedString.charAt(i));
+            }
+            if (trimedString.charAt(i) == ' ') {
+                if (trimedString.charAt(i - 1) != ' ') {
+                    stringBuilder = stringBuilder.append(trimedString.charAt(i));
+                    count++;
+                }
             }
         }
-        String[] strings = new String[count+1];
-        for (int i=0, j=0; i < strInput.length(); i++){
-            if (strInput.charAt(i)!= ' '){
-                sb=sb.append(strInput.charAt(i));
+
+        trimedString = stringBuilder.toString();
+        StringBuilder sb = new StringBuilder();
+        String[] arrayOfStrings = new String[count + 1];
+        for (int i = 0, j = 0; i < trimedString.length(); i++) {
+            if (trimedString.charAt(i) != ' ') {
+                sb = sb.append(trimedString.charAt(i));
             }
-            if (strInput.charAt(i)== ' ' || i==strInput.length()-1) {
-                strings[j]=sb.toString();
+            if (trimedString.charAt(i) == ' ' || i == trimedString.length() - 1) {
+                arrayOfStrings[j] = sb.toString();
                 j++;
                 sb.setLength(0);
             }
         }
-        return strings;
+        return arrayOfStrings;
     }
 }
