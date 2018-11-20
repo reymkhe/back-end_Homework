@@ -7,11 +7,11 @@ public class Parser {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < trimedString.length(); i++) {
             if (trimedString.charAt(i) != ' ') {
-                stringBuilder = stringBuilder.append(trimedString.charAt(i));
+                stringBuilder.append(trimedString.charAt(i));
             }
             if (trimedString.charAt(i) == ' ') {
                 if (trimedString.charAt(i - 1) != ' ') {
-                    stringBuilder = stringBuilder.append(trimedString.charAt(i));
+                    stringBuilder.append(trimedString.charAt(i));
                     count++;
                 }
             }
@@ -22,7 +22,7 @@ public class Parser {
         String[] arrayOfStrings = new String[count + 1];
         for (int i = 0, j = 0; i < trimedString.length(); i++) {
             if (trimedString.charAt(i) != ' ') {
-                sb = sb.append(trimedString.charAt(i));
+                sb.append(trimedString.charAt(i));
             }
             if (trimedString.charAt(i) == ' ' || i == trimedString.length() - 1) {
                 arrayOfStrings[j] = sb.toString();
