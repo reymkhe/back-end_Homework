@@ -4,13 +4,26 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Grep with one word filter
+ */
 public class OneWordGrep implements IGrep {
     private String filter;
 
-    public OneWordGrep (final String filter) {
+    /**
+     * OneWordGrep constructor
+     * @param filter - filter for source, one world
+     */
+    public OneWordGrep(final String filter) {
         this.filter = filter;
     }
 
+    /**
+     * doGrep function filters a text source and shows strings that have a filter
+     * @param reader - reader for source
+     * @return List containing strings that have a filter
+     * @throws IOException when filter or reader is not exist
+     */
     public List doGrep(final Reader reader) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line;

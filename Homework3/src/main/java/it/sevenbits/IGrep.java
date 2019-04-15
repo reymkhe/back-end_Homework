@@ -9,9 +9,10 @@ import java.util.List;
  */
 public interface IGrep {
     /**
-     * DoGrep function filters a text source and
+     * DoGrep function filters a text source and shows strings that have a filter
      * @param reader - reader for source
-     * @return
+     * @return List with strings that have a filter
+     * @throws IOException when filter or reader is not exist
      */
-    List doGrep(final Reader reader) throws IOException;
+    List doGrep(Reader reader) throws IOException;
 }
