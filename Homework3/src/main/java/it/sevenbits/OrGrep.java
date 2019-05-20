@@ -1,6 +1,5 @@
 package it.sevenbits;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -30,10 +29,16 @@ public class OrGrep implements IGrep {
      * @throws IOException when filter or reader is not exist
      */
     public List doGrep(final Reader reader) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        String line;
         List<String> grepedSource = new ArrayList<>();
-        while ((line = bufferedReader.readLine()) != null) {
+        StringBuilder sb = new StringBuilder();
+        int c;
+        while ((c = reader.read()) != -1) {
+            char readChar = (char) c;
+            sb.append(readChar);
+        }
+        String result = new String(sb);
+        String[] lineArray = result.split("\n");
+        for (String line:lineArray) {
             if (line.contains(filter1)) {
                 grepedSource.add(line);
             } else {
@@ -41,8 +46,6 @@ public class OrGrep implements IGrep {
                     grepedSource.add(line);
                 }
             }
-
-        }
-        return grepedSource;
+        } return grepedSource;
     }
 }

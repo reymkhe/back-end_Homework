@@ -21,24 +21,6 @@
             <version>2.21.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-mockito-release-full</artifactId>
-            <version>1.5.4</version>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <version>1.7.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock.modules.test.powermockito.junit4</groupId>
-            <artifactId>powermock-module-test-powermockito-junit4</artifactId>
-            <version>1.4.5-SONATYPE</version>
-        </dependency>
     </dependencies>
 
     <build>
